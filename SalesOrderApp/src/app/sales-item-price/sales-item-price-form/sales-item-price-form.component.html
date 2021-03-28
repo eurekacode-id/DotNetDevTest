@@ -1,0 +1,39 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+  <input type="hidden" name="salesItemPriceId" [value]="service.formData.salesItemPriceId"/>
+  <div class="form-row">
+    <div class="form-group">
+      <label>SALES ITEM</label>
+      <select class="form-control form-control-lg">
+        <option *ngFor="let si of salesItemService.listSalesItem"
+          value="{{ si.salesItemId }}">
+          {{ si.labelName }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>UNIT OF MEASUREMENT</label>
+      <select class="form-control form-control-lg">
+        <option *ngFor="let uom of uomService.listUoM"
+          value="{{ uom.uoMId }}">
+          {{ uom.labelName }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>PRICE</label>
+      <input class="form-control form-control-lg"
+      placeholder="Price" name="price"
+      #price="ngModel" [(ngModel)]="service.formData.price" required maxlength="100" minlength="1"
+      [class.invalid]="price.invalid && price.touched">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+  </div>
+</form>

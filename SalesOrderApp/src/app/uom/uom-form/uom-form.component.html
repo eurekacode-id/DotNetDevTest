@@ -1,0 +1,26 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+  <input type="hidden" name="uoMId" [value]="service.formData.uoMId"/>
+  <div class="form-row">
+    <div class="form-group">
+      <label>CODE</label>
+      <input class="form-control form-control-lg"
+      placeholder="Code" name="code"
+      #code="ngModel" [(ngModel)]="service.formData.code" required
+      [class.invalid]="code.invalid && code.touched">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>UNIT OF MEASUREMENT</label>
+      <input class="form-control form-control-lg"
+      placeholder="Unit of Measurement" name="labelName"
+      #labelName="ngModel" [(ngModel)]="service.formData.labelName" required maxlength="100" minlength="1"
+      [class.invalid]="labelName.invalid && labelName.touched">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+  </div>
+</form>

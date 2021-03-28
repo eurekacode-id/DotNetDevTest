@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Eureka\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Eureka\\.nuget\\packages"
+    ]
+  }
+}

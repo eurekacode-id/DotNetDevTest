@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <h1 class="text-center">
+    Sales Order Line
+  </h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <app-sales-order-line-form></app-sales-order-line-form>
+  </div>
+  <div class="col-md-6">
+    <h3>List of Sales Order Line</h3>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Sales Order</th>
+          <th>Sales Item (UoM) - Price</th>
+          <th>Quantity</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sol of service.list">
+          <td (click)="populateForm(sol)">{{ sol.salesOrder.salesOrderDocumentNumber }}</td>
+          <td (click)="populateForm(sol)">
+            {{ sol.salesItemPrice.salesItem.labelName }} ({{ sol.salesItemPrice.uoM.labelName }}) - {{ sol.salesItemPrice.price }}
+          </td>
+          <td (click)="populateForm(sol)">{{ sol.quantity }}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger"
+            (click)="onDelete(sol.salesOrderLineId)">
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

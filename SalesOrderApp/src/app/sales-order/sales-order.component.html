@@ -1,0 +1,39 @@
+<div class="jumbotron">
+  <h1 class="text-center">
+    Sales Order
+  </h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <app-sales-order-form></app-sales-order-form>
+  </div>
+  <div class="col-md-6">
+    <h3>List of Sales Order</h3>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Sales Order Document Number</th>
+          <th>Customer</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let so of service.list">
+          <td (click)="populateForm(so)">{{ so.salesOrderDocumentNumber }}</td>
+          <td (click)="populateForm(so)">{{ so.customer.completeName }}</td>
+          <td>
+            <a href="#" class="nav-link"
+              routerLink="/sales-order/{{ so.salesOrderId }}" routerLinkActive="active">Add Items</a>
+          </td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger"
+            (click)="onDelete(so.salesOrderId)">
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="jumbotron">
+  <h1 class="text-center">
+    Unit of Measurements
+  </h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <app-uom-form></app-uom-form>
+  </div>
+  <div class="col-md-6">
+    <h3>List of Unit of Measurements</h3>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Code</th>
+          <th>Label Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let uom of service.list">
+          <td (click)="populateForm(uom)">{{ uom.code }}</td>
+          <td (click)="populateForm(uom)">{{ uom.labelName }}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger"
+            (click)="onDelete(uom.uoMId)">
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
